@@ -1,0 +1,96 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+.clock {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: pink;
+    position: relative;
+    border: 3px solid gray;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+}
+
+.clock .number {
+    font-family: 'Sofia', sans-serif;
+    --rotation: 0;
+    position: absolute;
+    top: 0;
+    padding: 2px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 20px;
+    display: block;
+}
+
+.clock .number1 { --rotation: 30deg; }
+.clock .number2 { --rotation: 60deg; }
+.clock .number3 { --rotation: 90deg; }
+.clock .number4 { --rotation: 120deg; }
+.clock .number5 { --rotation: 150deg; }
+.clock .number6 { --rotation: 180deg; }
+.clock .number7 { --rotation: 210deg; }
+.clock .number8 { --rotation: 240deg; }
+.clock .number9 { --rotation: 270deg; }
+.clock .number10 { --rotation: 300deg; }
+.clock .number11 { --rotation: 330deg; }
+
+.clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: left;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.clock .hand.hour {
+    width: 25%;
+    height: 5px;
+    border: 1px solid gray;
+}
+
+.clock .hand.min {
+    width: 35%;
+    height: 5px;
+    border: 1px solid gray;
+}
+
+.clock .hand.sec {
+    width: 40%;
+    height: 2px;
+    background-color: brown;
+}
+
+.clock::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    border: 1px solid gray;
+}
